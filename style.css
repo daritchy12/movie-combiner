@@ -1,7 +1,6 @@
-.row {
-    display: flex;
-}
-
-.column {
-    flex: 50%;
+.col-sm-12 col-lg-4 {
+    background-color: grey;
+    }
+.col-sm-12 col-lg-8 {
+    background-color: lightgray;
 }
