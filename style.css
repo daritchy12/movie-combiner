@@ -17,3 +17,6 @@
 .my-slider figure:hover img{
     opacity: 1;
 }
+div {
+    padding: 20px 20px 10px
+}
