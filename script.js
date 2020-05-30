@@ -1,26 +1,24 @@
 let slider = tns({
     container: '.my-slider',
     loop:true,
-    items:3,
+    items:1,
+    // autoWidth:true,
     // slideBy:'page',
     // lazyload:true,
-    navPosition:"bottom",
+    // navPosition:"bottom",
+    // autoWodth:true,
     mouseDrag:true,
     responsive:{
-        500:{
-            items:1,
+        640:{
+            items:2,
             controls:false,
             nav:false,
         },
-        700:{
-            items:2,
-            controls:true,
-            nav:true,
-        },
-        900:{
+        768:{
             items:3,
             controls:true,
             nav:true,
-        }
+        },
+        
     }
 })
