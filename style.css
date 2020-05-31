@@ -17,6 +17,37 @@
 .my-slider figure:hover img{
     opacity: 1;
 }
-div {
-    padding: 20px 20px 10px
+header{
+    margin-top: 5em;
 }
+header h5.motto{
+    position: relative;
+    /* z-index: ; */
+}
+header h5.motto::before{
+    content:'';
+    width:30px;
+    height:10px ;
+    background-color: rgba(255, 0, 0, 0.507);
+    position: absolute;
+    bottom:-2px;
+    z-index: -1;
+}
+.serv{
+    /* min-width: 50px; */
+    width:100%;
+    text-align: center;
+    padding:30px 30px 10px 10px;
+    border:1px solid;
+    box-shadow: 10px 10px #e0e0e0  ;
+    margin-right: 1em;
+}
+.serv > *{
+    display:block;
+}
+/* nav.fixed-top.navbar{
+    margin-bottom: 1em;
+} */
+/* div {
+    padding: 20px 20px 10px
+} */
