@@ -8,7 +8,7 @@ const title =document.querySelector('.poster > figcaption');
 // console.log(data)
 async function showReview(name){
     
-    d = await fetch(`http://localhost:8080/search=${name}`)
+    d = await fetch(`https://combnr.herokuapp.com/search=${name}`)
         .then(res=>res.json())
         .then(d=>d)
         let {data,review} = d;
