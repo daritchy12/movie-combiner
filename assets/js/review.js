@@ -11,7 +11,7 @@ console.log(positiveElem)
 // console.log(data)
 async function showReview(name){
     
-    d = await fetch(`http://combnr.herokuapp.com/search=${name}`)
+    d = await fetch(`https://combnr.herokuapp.com/search=${name}`)
         .then(res=>res.json())
         .then(d=>d)
 
