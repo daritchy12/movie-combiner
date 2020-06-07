@@ -1,3 +1,8 @@
+:root{
+    --meta-good:#6c3;
+    --meta-mixed:#fc3;
+    --meta-bad:#f00;
+}
 .col-sm-12 col-lg-6 {
     background-color: grey;
     }
@@ -26,7 +31,8 @@ h6::before{
 }
 header{
     color:black;
-    background-image: linear-gradient(black,blue,red), url(https://images.pexels.com/photos/65128/pexels-photo-65128.jpeg?auto=compress&cs=tinysrgb&h=650&w=940);
+    /* background-image: linear-gradient(black,blue,red), url(https://images.pexels.com/photos/65128/pexels-photo-65128.jpeg?auto=compress&cs=tinysrgb&h=650&w=940); */
+    background-image: linear-gradient(45deg , rgb(51,51,51) 10%,#f5c518 11%,black 86%), url(https://images.pexels.com/photos/65128/pexels-photo-65128.jpeg?auto=compress&cs=tinysrgb&h=650&w=940);
     background-size: cover;
     background-blend-mode: saturation;
     background-position: 25% 0%;
@@ -54,7 +60,7 @@ header,section{
     margin-top: 1em;
 }
 section#rev{
-    margin-top: 5em;
+    margin-top: 3.5em;
 }
 header h5.motto{
     position: relative;
@@ -153,10 +159,16 @@ header h5.motto{
     color:#f5c518;
     
 }
-.imdb p{
+#review p{
     font-size: 2rem;
     font-weight: bold;
-    transform: translate(30%,50%);
+    text-align: center;
+    transform: translateY(50%);
+}
+#nav{
+    padding:0.5em 0;
+    background-color: rgb(51, 51, 51) ;
+    margin-bottom: 1em;
 }
 /* .imdb p::after{
     content:'/10';
@@ -166,8 +178,71 @@ header h5.motto{
     bottom:0;
     transform: translate(30%,100%);
 } */
-#review.metacritic{}
+.metacritic{}
 #review.rotten{}
+
+.bad{
+    background-color: var(--meta-bad);
+}
+.mixed{
+    background-color: var(--meta-mixed);
+}
+.good{
+    background-color: var(--meta-good);
+}
+#rev figure.poster{
+    position: relative;
+}
+#rev figure.poster i.fa-bookmark{
+    position: absolute;
+    top:0px;
+    left:35%;
+    background-color: rgb(51, 51, 51);
+    clip-path: polygon(100% 0, 100% 100%, 50% 74%, 0 100%, 0 0);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color:#f5c518;
+    cursor: pointer;
+}
+#rev figure.poster i.fa-bookmark small{
+    position: absolute;
+    top:-2px;
+    left:20%;
+    color:#f5c518;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#rev figure.poster i.fa-bookmark:hover{
+    color:rgb(51, 51, 51);
+    /* fill:#f5c518; */
+    background-color:#f5c518;
+}
+#rev figure.poster i.fa-bookmark:hover small{
+    color:rgb(51, 51, 51);
+    /* fill:#f5c518; */
+    /* background-color:#f5c518; */
+}
+.rev{
+    width:100px;
+    height:100px;
+    color:white;
+}
+.rev p{
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    transform: translateY(50%);
+}
+#bottom ul.nav{
+    padding:0.5em 0;
+    background-color: #f5c518;
+}
+#bottom ul.nav li.nav-item{
+    cursor: pointer;
+    padding:0.5em 0.2em;
+    margin-right:0.3em;
+}
 @media only screen and (min-width:768px){
     #top .poster{
         transform: translateY(9%);
