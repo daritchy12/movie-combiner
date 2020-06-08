@@ -3,12 +3,7 @@ const poster =document.querySelector('.poster > img');
 const title =document.querySelector('.poster > figcaption');
 const reviewStatElem = document.querySelector('#review');
 const [positiveElem , negativeElem] = document.querySelectorAll('#bottom .card');
-console.log(positiveElem)
-// console.log(poster);
-// let d = null;
-// let fet = confirm('Do you wanna fetch?')
-// showReview()
-// console.log(data)
+
 async function showReview(name){
     
     d = await fetch(`https://combnr.herokuapp.com/search=${name}`)
@@ -43,14 +38,27 @@ async function showReview(name){
     reviewStatElem.dataset.rotten=ROTTEN_TOMATOES['Value'].slice(0,ROTTEN_TOMATOES['Value'].indexOf('%'));
     reviewStatElem.dataset.metacritic=METACRITIC['Value'].slice(0,METACRITIC['Value'].indexOf('/'));
 
-    if(reviewStatElem.classList.contains('imdb')){
-        console.log('yes')
-        let p = reviewStatElem.querySelector('p');
-        p.textContent = reviewStatElem.dataset.imdb;
+    switch(reviewStatElem.dataset.identifier){
+        case "imdb":
+            reviewStatElem.classList.remove('bad','mixed','good','rotten','imdb');
+            reviewStatElem.classList.add('imdb');
+            p.textContent = reviewStatElem.dataset.imdb;
+            reviewStatElem.dataset.identifier = "imdb";
+            break;
+        case "metacritic":
+            reviewStatElem.classList.remove('bad','mixed','good','rotten','imdb');
+            const score = parseInt(reviewStatElem.dataset.metacritic);
+            reviewStatElem.classList.add(score >=60 ? 'good' : score >= 50 ? 'mixed' : 'bad');
+            p.textContent = reviewStatElem.dataset.metacritic;
+            reviewStatElem.dataset.identifier = "metacritic";
+            break;
+        case "rotten":
+            reviewStatElem.classList.remove('bad','mixed','good','rotten','imdb');
+            reviewStatElem.classList.add('rotten');
+            p.textContent = reviewStatElem.dataset.rotten;
+            reviewStatElem.dataset.identifier="rotten"
+            break;
     }
-    
-    // positiveElem.querySelector('.rev').classList.remove(['bad,mixed,good']);
-    // negativeElem.querySelector('.rev p').classList.remove(['bad,mixed,good']);
 
 
     positiveElem.querySelector('.rev p').textContent = review['highestRating']['rating'];
