@@ -20,13 +20,11 @@ let slider = tns({
     responsive:{
         640:{
             items:2,
-            controls:true,
-            nav:true,
+           
         },
         768:{
             items:3,
-            controls:true,
-            nav:true,
+         
         },
         
     }
