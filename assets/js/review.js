@@ -10,7 +10,8 @@ async function showReview(name){
         .then(res=>res.json())
         .then(d=>d)
 
-    if(d['message']){
+     if(d['message']){
+        $('#NotFoundModal').modal('show');
         console.log('Not Here');
         return;
     }
