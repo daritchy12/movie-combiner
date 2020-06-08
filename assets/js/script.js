@@ -3,7 +3,6 @@ let bookData = {
 };
 window.onload = function(){
     if(localStorage.getItem('current')){
-        console.log(localStorage.getItem('current'))
         showReview(localStorage.getItem('current'))
     }
     else{
@@ -36,11 +35,10 @@ function add(obj){
 }
 
 const formElem = document.querySelector("form#search");
-console.log(formElem);
+
 formElem.addEventListener('submit',(e)=>{
     e.preventDefault();
     const input = formElem.querySelector('input[type="search"]');
-    console.log(input)
     showReview(input.value)
     input.value = "";
     console.log('It submitted')
@@ -54,26 +52,23 @@ for(let i=0;i<navButton.length;i++){
         console.log("Yes i'm clicking")
         switch(tar){
             case "imdb":
-                console.log("I'm at IMDB");
-                if(!reviewStatElem.classList.contains('imdb')){
-                    reviewStatElem.classList.remove('bad','mixed','good','rotten','imdb');
-                    reviewStatElem.classList.add('imdb');
-                }
+                reviewStatElem.classList.remove('bad','mixed','good','rotten','imdb');
+                reviewStatElem.classList.add('imdb');
+                reviewStatElem.dataset.identifier = "imdb";
                 p.textContent = reviewStatElem.dataset.imdb;
                 break;
             case "metacritic":
-                console.log("I'm at Meta");
                 reviewStatElem.classList.remove('bad','mixed','good','rotten','imdb');
                 const score = parseInt(reviewStatElem.dataset.metacritic);
-
                 reviewStatElem.classList.add(score >=60 ? 'good' : score >= 50 ? 'mixed' : 'bad');
                 p.textContent = reviewStatElem.dataset.metacritic;
+                reviewStatElem.dataset.identifier = "metacritic";
                 break;
             case "rotten":
-                console.log("I'm at rotten");
                 reviewStatElem.classList.remove('bad','mixed','good','rotten','imdb');
                 reviewStatElem.classList.add('rotten');
                 p.textContent = reviewStatElem.dataset.rotten;
+                reviewStatElem.dataset.identifier = "rotten";
                 break;
         }
     });
