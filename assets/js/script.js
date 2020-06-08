@@ -44,5 +44,38 @@ formElem.addEventListener('submit',(e)=>{
     showReview(input.value)
     input.value = "";
     console.log('It submitted')
-})
+});
+
+const navButton = document.querySelectorAll("#bottom li.nav-item");
+for(let i=0;i<navButton.length;i++){
+    navButton[i].addEventListener('click',(e)=>{
+        const tar = e.target.dataset.identifier;
+        let p = reviewStatElem.querySelector('p');
+        console.log("Yes i'm clicking")
+        switch(tar){
+            case "imdb":
+                console.log("I'm at IMDB");
+                if(!reviewStatElem.classList.contains('imdb')){
+                    reviewStatElem.classList.remove('bad','mixed','good','rotten','imdb');
+                    reviewStatElem.classList.add('imdb');
+                }
+                p.textContent = reviewStatElem.dataset.imdb;
+                break;
+            case "metacritic":
+                console.log("I'm at Meta");
+                reviewStatElem.classList.remove('bad','mixed','good','rotten','imdb');
+                const score = parseInt(reviewStatElem.dataset.metacritic);
+
+                reviewStatElem.classList.add(score >=60 ? 'good' : score >= 50 ? 'mixed' : 'bad');
+                p.textContent = reviewStatElem.dataset.metacritic;
+                break;
+            case "rotten":
+                console.log("I'm at rotten");
+                reviewStatElem.classList.remove('bad','mixed','good','rotten','imdb');
+                reviewStatElem.classList.add('rotten');
+                p.textContent = reviewStatElem.dataset.rotten;
+                break;
+        }
+    });
+}
 // $('#button').on('click')
