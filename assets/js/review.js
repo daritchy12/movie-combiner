@@ -36,7 +36,7 @@ async function showReview(name){
 
     const [IMDB,ROTTEN_TOMATOES,METACRITIC] = data['Ratings']
     reviewStatElem.dataset.imdb=IMDB ? IMDB['Value'].slice(0,3) : 'n/a';
-    reviewStatElem.dataset.rotten=ROTTEN_TOMATOES ? ROTTEN_TOMATOES['Value'] .slice(0,ROTTEN_TOMATOES['Value'].indexOf('%')) : 'n/a';
+    reviewStatElem.dataset.rotten=ROTTEN_TOMATOES ? ROTTEN_TOMATOES['Value'] .slice(0,ROTTEN_TOMATOES['Value'].indexOf('/')) : 'n/a';
     reviewStatElem.dataset.metacritic= METACRITIC ? METACRITIC['Value'].slice(0,METACRITIC['Value'].indexOf('/')) : 'n/a';
     
     let p = reviewStatElem.querySelector('p');
