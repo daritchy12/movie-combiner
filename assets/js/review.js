@@ -35,9 +35,9 @@ async function showReview(name){
     Genre.textContent = data.Genre;
 
     const [IMDB,ROTTEN_TOMATOES,METACRITIC] = data['Ratings']
-    reviewStatElem.dataset.imdb=IMDB['Value'].slice(0,3);
-    reviewStatElem.dataset.rotten=ROTTEN_TOMATOES['Value'].slice(0,ROTTEN_TOMATOES['Value'].indexOf('%'));
-    reviewStatElem.dataset.metacritic=METACRITIC['Value'].slice(0,METACRITIC['Value'].indexOf('/'));
+    reviewStatElem.dataset.imdb=IMDB ? IMDB['Value'].slice(0,3) : 'n/a';
+    reviewStatElem.dataset.rotten=ROTTEN_TOMATOES ? ROTTEN_TOMATOES['Value'] .slice(0,ROTTEN_TOMATOES['Value'].indexOf('%')) : 'n/a';
+    reviewStatElem.dataset.metacritic= METACRITIC ? METACRITIC['Value'].slice(0,METACRITIC['Value'].indexOf('/')) : 'n/a';
 
     switch(reviewStatElem.dataset.identifier){
         case "imdb":
@@ -65,8 +65,8 @@ async function showReview(name){
     positiveElem.querySelector('.rev p').textContent = review['highestRating']['rating'];
     negativeElem.querySelector('.rev p').textContent = review['lowestRating']['rating'];
     
-    positiveElem.querySelector('p.text').textContent = review['highestRating']['text']
-    negativeElem.querySelector('p.text').textContent = review['lowestRating']['text']
+    positiveElem.querySelector('p.text').textContent = review['highestRating']['text'] == "" ? "Sorry couldn't find reviews" : review['highestRating']['text']
+    negativeElem.querySelector('p.text').textContent = review['lowestRating']['text'] == "" ? "Sorry couldn't find reviews" : review['lowestRating']['text']
 
     positiveElem.querySelector('span.author').textContent = review['highestRating']['author']
     negativeElem.querySelector('span.author').textContent = review['lowestRating']['author']
