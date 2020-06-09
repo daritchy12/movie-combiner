@@ -38,7 +38,9 @@ async function showReview(name){
     reviewStatElem.dataset.imdb=IMDB ? IMDB['Value'].slice(0,3) : 'n/a';
     reviewStatElem.dataset.rotten=ROTTEN_TOMATOES ? ROTTEN_TOMATOES['Value'] .slice(0,ROTTEN_TOMATOES['Value'].indexOf('%')) : 'n/a';
     reviewStatElem.dataset.metacritic= METACRITIC ? METACRITIC['Value'].slice(0,METACRITIC['Value'].indexOf('/')) : 'n/a';
-
+    
+    let p = reviewStatElem.querySelector('p');
+    
     switch(reviewStatElem.dataset.identifier){
         case "imdb":
             reviewStatElem.classList.remove('bad','mixed','good','rotten','imdb');
